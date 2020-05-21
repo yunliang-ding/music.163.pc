@@ -5,7 +5,8 @@ import { observable, action } from 'mobx'
 @injectable()
 class UiServices implements UiInterface {
   @observable navTitle = '网易云音乐'
-  @action setNavTitle = (navTitle:string) => {
+  @observable isDark = true
+  @action setNavTitle = (navTitle: string) => {
     this.navTitle = navTitle
   }
   @observable loading = false
@@ -59,40 +60,36 @@ class UiServices implements UiInterface {
     this.plyerRecord = plyerRecord
   }
   @observable menus = [{
-    label: '',
-    key: Math.random(),
-    subMenu: [{
-      label: '发现音乐',
-      router: '/app/music.163.discovery',
-      icon: 'icon-wangyiyunyinle',
-      selected: true
-    }, {
-      label: '私人FM',
-      router: '/app/music.163.fm',
-      icon: 'icon-FM',
-      selected: false
-    }, {
-      label: '视频',
-      router: '/app/music.163.video',
-      icon: 'icon-shipin1',
-      selected: false
-    }, {
-      label: '朋友',
-      router: '/app/music.163.friends',
-      icon: 'icon-pengyou',
-      selected: false
-    }]
+    label: '发现音乐',
+    key: '/app/music.163.discovery',
+    icon: 'iconfont icon-wangyiyunyinle',
+    selected: true
+  }, {
+    label: '私人FM',
+    key: '/app/music.163.fm',
+    icon: 'iconfont icon-FM',
+    selected: false
+  }, {
+    label: '视频',
+    key: '/app/music.163.video',
+    icon: 'iconfont icon-shipin1',
+    selected: false
+  }, {
+    label: '朋友',
+    key: '/app/music.163.friends',
+    icon: 'iconfont icon-pengyou',
+    selected: false
   }, {
     label: '我的音乐',
-    key: Math.random(),
+    key: '1',
     subMenu: []
   }, {
     label: '创建的歌单',
-    key: Math.random(),
+    key: '2',
     subMenu: []
   }, {
     label: '收藏的歌单',
-    key: Math.random(),
+    key: '3',
     subMenu: []
   }]
   @action setSelected = (_index, __index) => {
@@ -104,20 +101,20 @@ class UiServices implements UiInterface {
     this.menus[_index].subMenu[__index].selected = true
   }
   @action addUserMenus = () => {
-    this.menus[1].subMenu = [{
+    this.menus[4].subMenu = [{
       label: '每日推荐',
-      router: '/app/music.163.recommend',
-      icon: 'icon-tuijian',
+      key: '/app/music.163.recommend',
+      icon: 'iconfont icon-tuijian',
       selected: false
     }, {
       label: '播放记录',
-      router: '/app/music.163.record',
-      icon: 'icon-history',
+      key: '/app/music.163.record',
+      icon: 'iconfont icon-history',
       selected: false
     }, {
       label: '喜欢的歌',
-      router: '/app/music.163.liked',
-      icon: 'icon-xihuan',
+      key: '/app/music.163.liked',
+      icon: 'iconfont icon-xihuan',
       selected: false
     }]
   }
@@ -129,62 +126,47 @@ class UiServices implements UiInterface {
   @action updateMenus = (playlist, userId) => {
     playlist.forEach(_item => {
       if (_item.userId === userId) {
-        this.menus[2].subMenu.push({
+        this.menus[5].subMenu.push({
           label: _item.name,
-          router: `/app/music.163.playlist/${_item.id}`,
-          icon: 'icon-gedan',
+          key: `/app/music.163.playlist/${_item.id}`,
+          icon: 'iconfont icon-gedan',
           selected: false
         })
       } else {
-        this.menus[3].subMenu.push({
+        this.menus[6].subMenu.push({
           label: _item.name,
-          router: `/app/music.163.playlist/${_item.id}`,
-          icon: 'icon-gedan',
+          key: `/app/music.163.playlist/${_item.id}`,
+          icon: 'iconfont icon-gedan',
           selected: false
         })
       }
     })
   }
   /**
-    app-mobile
+    主题
   */
-  @observable appMenus = [{
-    key: Math.random(),
-    icon: 'icon-tuijian',
-    selected: true,
-    badge: null,
-    hash: '/app-mobile/music.163.mrtj',
-    fontSize: 24
+  @observable theme = 'dark'
+  @observable themes = [{
+    value: 'cadetblue',
+    label: '浅蓝色'
   }, {
-    key: Math.random(),
-    icon: 'icon-history',
-    selected: false,
-    badge: null,
-    hash: '/app-mobile/music.163.bfjl',
-    fontSize: 24
+    value: 'green',
+    label: '浅绿色'
   }, {
-    key: Math.random(),
-    icon: 'icon-xihuan',
-    selected: false,
-    badge: null,
-    hash: '/app-mobile/music.163.xhdg',
-    fontSize: 20
+    value: 'red',
+    label: '经典红'
   }, {
-    key: Math.random(),
-    icon: 'icon-gedan',
-    selected: false,
-    badge: null,
-    hash: '/app-mobile/music.163.wdgd',
-    fontSize: 20
+    value: 'skyblue',
+    label: '天空蓝'
+  }, {
+    value: 'dark',
+    label: '黑色'
   }]
-  @action setAppMenu = (index:number) => {
-    this.appMenus.forEach((_item, _index) => {
-      _item.selected = _index === index
-      if(_item.selected){
-        location.hash = _item.hash
-      }
-    })
-    this.appMenus = [...this.appMenus] // render
+  @action setTheme = (theme: string) => {
+    let href: any = document.querySelector('#app-theme').getAttribute('href').split('/');
+    href[href.length - 1] = theme + '.css'
+    document.querySelector('#app-theme').setAttribute('href', href.join('/'))
+    this.theme = theme
   }
 }
 export {

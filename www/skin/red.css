@@ -1,3 +1,5 @@
 #root{
-  --theme-color:#c20c0c
+  --theme-border-color: #c20c0c;
+  --theme-color: #c20c0c;
+  --theme-background-color: #c20c0c;
 }

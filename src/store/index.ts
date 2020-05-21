@@ -1,5 +1,5 @@
-import { UI } from './ui'
-import { Music } from './music'
+import { UI } from './ui/index'
+import { Music } from './music/index'
 export default {
   UI,
   Music

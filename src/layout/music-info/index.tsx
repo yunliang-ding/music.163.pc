@@ -3,6 +3,7 @@ import { observer, inject } from 'mobx-react'
 import { toJS } from 'mobx'
 import { Progress } from 'antd';
 import Message from 'antd/es/message'
+import './index.less'
 @inject('Music', 'UI')
 @observer
 class MusicInfo extends React.Component<any, any> {

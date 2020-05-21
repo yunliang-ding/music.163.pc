@@ -5,6 +5,7 @@ import Badge from 'antd/es/badge'
 import { PlayRecord } from './playrecord'
 import { PlayMv } from './playmv'
 import { PlaySongList } from './playsonglist'
+import './index.less'
 @inject('Music', 'UI')
 @observer
 class Footer extends React.Component<any, any> {
@@ -34,9 +35,10 @@ class Footer extends React.Component<any, any> {
       collectionModel,
       isFullScreen
     } = this.props.UI
+    let theme = this.props.UI.theme === 'dark' ? '-dark' : ''
     return <div style={{ width: '100%', height: 50, display: isFullScreen ? 'none' : 'block' }}>
       <Video />
-      <div className='app-footer'>
+      <div className={`app-footer${theme}`}>
         <div className='music-tools' style={{ width: '33.3%', display: 'flex', boxSizing: 'border-box' }}>
           <div style={{ width: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: 10 }}>
             {

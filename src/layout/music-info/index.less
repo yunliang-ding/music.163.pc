@@ -1,0 +1,99 @@
+.app-music-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height:100%;
+  .app-music-info-before{
+    position: fixed;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4c4c4c57;
+    color: #fff;
+    font-size:20px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    cursor: pointer;
+  }
+  .app-music-info-next{
+    position: fixed;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4c4c4c57;
+    color: #fff;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    cursor: pointer;
+  }
+  .app-music-info-progress{
+    .ant-progress-text{
+      display:none;
+    }
+    width:100px;
+    height:100px;
+    position:fixed;
+    top:22px;
+    left:calc(~'50% - 175px');
+  }
+  .app-music-info-image{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:450px;
+    width:100%;
+    img{
+      width:320px;
+      border-radius: 50%;
+    }
+  }
+  .app-music-info-title{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2{
+      color:#fff;
+      font-size:30px;
+    }
+  }
+  .app-music-info-lyric{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2{
+      color:#fff;
+      font-size: 20px;
+    }
+  }
+  .app-music-info-menu{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:calc(~'100% - 550px');
+    width:100%;
+    .app-music-info-menu-item{
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      background: #4c4c4c57;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      margin:0 12px;
+      cursor: pointer;
+    }
+  }
+}

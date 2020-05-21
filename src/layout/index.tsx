@@ -1,13 +1,12 @@
 import * as React from "react"
 import { observer, inject } from 'mobx-react'
-import { Sider } from './sider'
-import { Content } from './content'
+import { Sider } from './sider/index'
+import { Content } from './content/index'
 import { Footer } from './footer/index'
-import { Header } from './header'
-import { Login } from './login'
-import { MusicInfo } from './musicinfo'
-import Spin from 'antd/es/spin'
-import Icon from 'antd/es/icon'
+import { Header } from './header/index1'
+import { Login } from './login/index'
+import { MusicInfo } from './music-info/index'
+import { Loading } from 'react-ryui'
 import './index.less'
 @inject('UI', 'Music')
 @observer
@@ -48,7 +47,7 @@ class Layout extends React.Component<any, any> {
       {
         isFullScreen && <img className='app-image' src={`${image}?param=600y600`} />
       }
-      <Spin spinning={loading} indicator={<Icon type="loading" style={{ fontSize: 24 }} />}>
+      <Loading loading={loading}>
         { !isFullScreen && <Header /> }
         {
           isFullScreen && <div className='app-layout-detail' style={{
@@ -65,7 +64,7 @@ class Layout extends React.Component<any, any> {
           <Content children={this.props.children} />
         </div>
         <Footer />
-      </Spin>
+      </Loading>
       <Login />
     </div>
   }

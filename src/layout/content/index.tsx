@@ -6,7 +6,8 @@ import './index.less'
 class Content extends React.Component<any, any> {
   [x: string]: any
   render() {
-    return <div className='app-content'>
+    let theme = this.props.UI.theme === 'dark' ? '-dark' : ''
+    return <div className={`app-content${theme}`}>
       {this.props.children}
     </div>
   }

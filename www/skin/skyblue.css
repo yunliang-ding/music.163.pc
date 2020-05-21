@@ -1,3 +1,5 @@
 #root{
-  --theme-color:skyblue;
+  --theme-border-color: skyblue;
+  --theme-color: skyblue;
+  --theme-background-color: skyblue;
 }

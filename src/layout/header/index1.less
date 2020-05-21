@@ -1,0 +1,58 @@
+.app-header{
+  height:50px;
+  background: var(--theme-color);
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0;
+  color:#fff;
+  position: relative;
+  z-index: 99999999;
+  .app-header-theme{
+    position: absolute;
+    right: 40px;
+    top: 10px;
+    z-index: 9;
+  }
+  .app-header-search{
+    position: absolute;
+    right: 140px;
+    top: 10px;
+    z-index: 9;
+    .yui-input{
+      color:#333;
+    }
+  }
+  .yui-nav, .yui-nav-dark{
+    padding: 0 20px;
+    padding-left:10px;
+    .yui-nav-logo{
+      height:100%;
+      left:-10px !important;
+      .iconfont{
+        margin-right:8px;
+      }
+      b{
+        font-size: 16px;
+        width: 130px;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  .yui-nav{
+    background-color: var(--theme-color);
+  }
+  .yui-select{
+    background-color: var(--theme-color);
+    .yui-select-compont{
+      .yui-select-compont-value{
+        color:#fff;
+      }
+      .yui-select-allow{
+        color:#fff;
+      }
+    }
+  }
+}

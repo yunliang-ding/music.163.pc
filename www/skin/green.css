@@ -1,3 +1,5 @@
-body{
-  --theme-color:#47c479;
+#root{
+  --theme-border-color: #47c479;
+  --theme-color: #47c479;
+  --theme-background-color: #47c479;
 }

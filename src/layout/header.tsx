@@ -9,8 +9,21 @@ class Header extends React.Component<any, any> {
   [x: string]: any
   constructor(props) {
     super(props)
+    this.navList = [{
+      key: Math.random(),
+      label: <span>通用</span>,
+      active: true
+    }, {
+      key: Math.random(),
+      label: <span>布局</span>,
+      active: false
+    }, {
+      key: Math.random(),
+      label: <span>导航</span>,
+      active: false
+    }]
   }
-  render() {
+  render () {
     const {
       searchForm: {
         keywords

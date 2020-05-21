@@ -1,3 +1,5 @@
 #root{
-  --theme-color:cadetblue;
+  --theme-border-color: cadetblue;
+  --theme-color: cadetblue;
+  --theme-background-color: cadetblue;
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { observer, inject } from 'mobx-react'
-import Slider from 'antd/es/slider'
+import { Slider } from 'react-ryui'
 import message from 'antd/es/message'
 const $ = document.querySelector.bind(document)
 @inject('Music', 'UI')
@@ -9,6 +9,9 @@ class Video extends React.Component<any, any> {
   [x: string]: any
   constructor(props) {
     super(props)
+    this.state = {
+      siderWidth: 0
+    }
   }
   componentDidUpdate() {
     $('#title').innerHTML = this.props.Music.music.name || 'music.163.web'
@@ -23,6 +26,9 @@ class Video extends React.Component<any, any> {
     $('#vidio').onerror = (e) => {
       this.props.Music.url !== undefined && message.warn('暂无版权!')
     }
+    this.setState({
+      siderWidth: this.sliderNode.getBoundingClientRect().width
+    })
   }
   render() {
     const {
@@ -34,21 +40,20 @@ class Video extends React.Component<any, any> {
       },
       setProgress
     } = this.props.Music
-    return <div className='app-footer-sider'>
+    return <div className='app-footer-sider' ref={slider => {this.sliderNode = slider}}>
       <div style={{ width: '100%' }}>
         <Slider
-          min={0}
-          max={1}
-          step={0.001}
-          value={progress / duration}
+          dark={this.props.UI.theme === 'dark'}
+          siderWidth={this.state.siderWidth}
+          siderHeight={6}
+          progress={Math.ceil(progress / duration * 100)}
           onChange={
-            (e: any) => {
-              $('#vidio').currentTime = e * duration / 1000
+            (e) => {
+              $('#vidio').currentTime = duration * e / 100
               playing ? $('#vidio').play() : $('#vidio').pause()
-              setProgress(e * duration)
+              setProgress(duration * e / 100)
             }
           }
-          tipFormatter={null}
         />
       </div>
       <div style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
