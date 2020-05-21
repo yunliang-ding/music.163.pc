@@ -2,20 +2,7 @@ import axios from 'axios'
 import { UI } from '../store/ui/index'
 import { Music } from '../store/music/index'
 import { message }  from 'antd'
-import { Toast } from 'antd-mobile'
 const qs = require('qs')
-const isPc = () => {
-  let userAgentInfo = navigator.userAgent;
-  let Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"]
-  let flag = true;
-  for (let v = 0; v < Agents.length; v++) {
-    if (userAgentInfo.indexOf(Agents[v]) > 0) {
-      flag = false;
-      break;
-    }
-  }
-  return flag;
-}
 const get = async (url, params) => {
   let response = null
   UI.setLoading(true)
@@ -32,11 +19,7 @@ const get = async (url, params) => {
      // 自动刷新登录
      try{
       if(localStorage.getItem('userInfo') === null){
-        if (isPc()) {
-          message.error('需要登录!')
-        } else {
-          location.hash = '/app-mobile/music.163.login'
-        }
+        message.error('需要登录!')
       } else {
         const { username, password, loginWay } = JSON.parse(localStorage.getItem('userInfo'))
         await Music.login(username, password, loginWay)
@@ -46,7 +29,7 @@ const get = async (url, params) => {
       console.log(e)
      }
     } else if( response.data.code !== 200 ) {
-      isPc() ? message.error(response.data.msg) : Toast.fail(response.data.msg || '请求失败', 1);
+      message.error(response.data.msg)
     }
     UI.setLoading(false)
     return response.data
@@ -85,6 +68,5 @@ const post = async (url, data, headers) => {
 }
 export {
   get,
-  post,
-  isPc
+  post
 }

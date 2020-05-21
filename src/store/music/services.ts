@@ -2,7 +2,7 @@ import { injectable } from "inversify"
 import "reflect-metadata"
 import { MusicInterface } from "./type";
 import { observable, action, runInAction, toJS } from 'mobx'
-import { get, isPc } from '../../api'
+import { get } from '../../api'
 import message from 'antd/es/message'
 import { UI } from '../ui/index'
 const $ = document.querySelector.bind(document)
@@ -96,7 +96,7 @@ class MusicServices implements MusicInterface {
       })
       setTimeout(() => {
         UI.setLogin(false)
-        window.location.hash = isPc() ? '/app/music.163.discovery' : '/app-mobile/music.163.login'
+        window.location.hash = '/app/music.163.discovery'
       }, 2000)
     }
   }
@@ -138,7 +138,7 @@ class MusicServices implements MusicInterface {
       this.getLikeList()
       return true
     } else {
-      isPc() && message.error(msg || '账号或密码错误')
+      message.error(msg || '账号或密码错误')
     }
     return false
   }
