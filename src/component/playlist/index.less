@@ -1,4 +1,4 @@
-.app-playlist{
+.app-playlist, .app-playlist-dark{
   background: #ffffff8c;
   height: calc(~'100%');
   width: calc(~'100%');
@@ -37,7 +37,7 @@
     }
   }
 }
-.app-playlist-table{
+.app-playlist-table, .app-playlist-table-dark{
   height: calc(~'100%');
   width: calc(~'100%');
   background: #ffffff8a;
@@ -72,12 +72,12 @@
         align-items: center;
         color:#555 !important;
         span{
-          color: var(--theme-color);
+          color: #666;
           font-size: 12px;
           padding: 5px;
           height: 28px;
           width: 36px;
-          border: 1px solid var(--theme-color);
+          border: 1px solid #333;
           border-radius: 4px;
           margin-right:8px;
         }
@@ -96,7 +96,7 @@
       }
       .app-playlist-header-number{
         font-size:12px;
-        margin-top:20px;
+        margin-top:12px;
         span{
           margin-right:8px;
         }
@@ -135,6 +135,20 @@
       font-size:12px;
       border-radius: 0;
       margin-left: 10px;
+    }
+  }
+}
+.app-playlist-table-dark{
+  background:#1e1e1e;
+  .app-playlist-header{
+    background: #1e1e1e;
+    .app-playlist-header-number{
+      color:#666 !important;
+    }
+    .dates{
+      img{
+        filter:grayscale(.5);
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { observer, inject } from 'mobx-react'
 import { Video } from './video'
-import Badge from 'antd/es/badge'
+import { Badge } from 'react-ryui'
 import { PlayRecord } from './playrecord'
 import { PlayMv } from './playmv'
 import { PlaySongList } from './playsonglist'
@@ -77,7 +77,7 @@ class Footer extends React.Component<any, any> {
               playerBefore()
             }
           }></i>
-          <i style={{ fontSize: 42 }} className={playing ? 'iconfont icon-zanting2' : 'iconfont icon-video-control'} onClick={
+          <i style={{ fontSize: 32 }} className={playing ? 'iconfont icon-zanting2' : 'iconfont icon-video-control'} onClick={
             () => {
               this.props.Music.setPlaying(!playing)
             }
@@ -91,13 +91,13 @@ class Footer extends React.Component<any, any> {
         <div className='music-tools' style={{ width: '33.3%', justifyContent: 'flex-end', minWidth: 200 }}>
           <i className='iconfont icon-shengyin'></i>
           <i className='iconfont icon-xunhuanbofang'></i>
-          <Badge count={musicsCache.length}>
-            <i className='iconfont icon-icon-' onClick={
-              () => {
-                setPlyerRecord(!plyerRecord)
-              }
-            }></i>
-          </Badge>
+          <i className='iconfont icon-icon-' onClick={
+            () => {
+              setPlyerRecord(!plyerRecord)
+            }
+          }>
+            <Badge count={musicsCache.length} />
+          </i>
         </div>
         {
           plyerRecord && <PlayRecord />

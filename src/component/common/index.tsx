@@ -1,18 +1,23 @@
 import * as React from "react"
 import { observer, inject } from 'mobx-react'
 import { toJS } from 'mobx'
-import Table from 'antd/es/table'
+import { Table } from 'react-ryui'
 import Message from 'antd/es/message'
-import Empty from 'antd/es/empty'
-import { Skeleton } from 'antd';
 import './index.less'
-const $ = document.querySelector.bind(document)
 @inject('Music', 'UI')
 @observer
 class CommonTable extends React.Component<any, any> {
   [x: string]: any
   constructor(props) {
     super(props)
+    this.state = {
+      tableHeight: 0
+    }
+  }
+  componentDidMount() {
+    this.setState({
+      tableHeight: this.tableNode.getBoundingClientRect().height
+    })
   }
   render() {
     const {
@@ -28,29 +33,30 @@ class CommonTable extends React.Component<any, any> {
     } = this.props
     const columns = [
       {
-        title: '',
+        label: '',
         dataIndex: 'id',
         key: 'id',
-        width: '15%',
+        width: '20%',
         render: (id, record) => {
           return <div style={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center'
+            alignItems: 'center',
+            width: '90%'
           }}>
             <span style={{
               width: '30%',
               textAlign: 'center'
             }}>{String(record.sort).padStart(2, "0")}</span>
-            <i 
+            <i
               style={{
                 color: 'var(--theme-color)',
                 visibility: toJS(likelist).includes(record.id) ? 'visible' : 'hidden',
-                marginRight:8
-              }} 
+                marginRight: 8
+              }}
               className='iconfont icon-xihuan'
             >
-            </i> 
+            </i>
             <i className={id === music.id ? 'iconfont icon-bofang music-playing' : 'iconfont icon-bofang'} style={{
               cursor: 'pointer',
               width: '30%'
@@ -72,11 +78,11 @@ class CommonTable extends React.Component<any, any> {
           </div>
         }
       }, {
-        title: <span>音乐标题</span>,
+        label: <span>音乐标题</span>,
         dataIndex: 'name',
         key: 'name',
         ellipsis: true,
-        width: '30%',
+        width: '20%',
         render: (name, record) => {
           return <div title={name} style={{
             display: 'flex',
@@ -131,12 +137,12 @@ class CommonTable extends React.Component<any, any> {
           </div>
         }
       }, {
-        title: <span>歌手</span>,
+        label: <span>歌手</span>,
         dataIndex: 'artists',
         key: 'artists',
         width: '20%'
       }, {
-        title: '专辑',
+        label: '专辑',
         dataIndex: 'album',
         key: 'album',
         ellipsis: true,
@@ -152,10 +158,10 @@ class CommonTable extends React.Component<any, any> {
           </div>
         }
       }, {
-        title: <span>时长</span>,
+        label: <span>时长</span>,
         dataIndex: 'duration',
         key: 'duration',
-        width: '10%',
+        width: '20%',
         render: (_item) => {
           return <div>
             {Math.floor(_item / 1000 / 60).toString().padStart(2, '0')}
@@ -164,29 +170,18 @@ class CommonTable extends React.Component<any, any> {
           </div>
         }
       }]
-    return init ? <Skeleton active /> : (toJS(data).length === 0 
-      ? <div className='app-common-table-empty'>
-         <Empty />
-      </div> 
-      : <div className='app-common-table'>
+    return toJS(data).length === 0
+      ? <div className='app-common-table-empty' ref={table => { this.tableNode = table }}>
+        Loading...
+      </div>
+      : <div className='app-common-table' ref={table => { this.tableNode = table }}>
         <Table
-          dataSource={toJS(data)}
-          rowKey='id'
-          columns={columns}
-          pagination={false}
-          scroll={{ y: 300 }}
-          onRow={record => {
-            return {
-              onMouseEnter: (e) => {
-                $(`#tools${record.id}`).style.display = 'inline-block'
-              },
-              onMouseLeave: (e) => {
-                $(`#tools${record.id}`).style.display = 'none'
-              },
-            };
-          }}
+          style={{ height: this.state.tableHeight, border: 'none' }}
+          dark={this.props.UI.theme === 'dark'}
+          data={toJS(data)}
+          colmun={columns}
         />
-      </div>)
+      </div>
   }
 }
 export { CommonTable }

@@ -1,4 +1,4 @@
-.app-liked{
+.app-liked, .app-liked-dark{
   background: #ffffff8c;
   height: calc(~'100%');
   width: calc(~'100%');
@@ -8,11 +8,6 @@
     height:50px;
     padding:0 20px;
     background: #ffffff85;
-    .ant-input{
-      border-radius: 0;
-      height:36px;
-      width:400px;
-    }
     .iconfont{
       font-size:30px;
       margin-right:10px;
@@ -32,6 +27,15 @@
     height: calc(~'100% - 50px');
     .ant-table-body{
       max-height:calc(~'100% - 30px') !important;
+    }
+  }
+}
+.app-liked-dark{
+  background: #1e1e1e;
+  .app-liked-header{
+    background: #1e1e1e;
+    span{
+      color:#aaa;
     }
   }
 }

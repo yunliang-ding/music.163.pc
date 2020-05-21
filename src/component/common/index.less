@@ -16,3 +16,24 @@
     height: auto !important;
   }
 }
+.app-common-table{
+  height:100%;
+  .yui-table, .yui-table-dark{
+    .yui-table-body{
+      height: calc(100% - 40px);
+      overflow-y: auto;
+    }
+  }
+  .yui-table-dark{
+    .yui-table-body{
+      background-color: #1e1e1e !important;
+      .yui-table-body-tr{
+        border-color:#1c1c1c;
+        background-color: #1e1e1e;
+        .yui-table-body-td{
+          color:#aaa;
+        }
+      }
+    }
+  }
+}

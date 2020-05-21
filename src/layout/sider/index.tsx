@@ -49,7 +49,7 @@ class Sider extends React.Component<any, any> {
           navList={menus}
           menuClick={
             (openkey, selectKey) => {
-              window.location.hash = selectKey[0]
+              selectKey && ( window.location.hash = selectKey[0] )
             }
           }
           openKey={['1', '2', '3']}
