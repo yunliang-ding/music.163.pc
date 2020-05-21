@@ -1,0 +1,8 @@
+node_modules/
+www/static/
+out/log/
+out/frontend/public/main.js
+out/frontend/public/static
+out/frontend/node_modules/
+.DS_Store
+.vscode

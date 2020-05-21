@@ -1,0 +1,79 @@
+.app-recommend-table{
+  height: calc(~'100%');
+  width: calc(~'100%');
+  background: #ffffff8a;
+  .app-recommend-header{
+    height:150px;
+    font-size:20px;
+    display: flex;
+    align-items: center;
+    padding:0 60px;
+    width:100%;
+    background: #ffffff8a;
+    .dates{
+      height:120px;
+      width:120px;
+      margin-right:20px;
+      .datas-weeks{
+        font-size:12px;
+        height:30px;
+        line-height:30px;
+        text-align: center;
+        background: var(--theme-color);
+        color:#fff;
+        font-weight: 900;
+      }
+      .datas-days{
+        border:1px solid #eee;
+        font-size:43px;
+        height:90px;
+        line-height:90px;
+        text-align: center;
+        font-weight: 900;
+      }
+    }
+    .infos{
+      h3, h5{
+        color:#555 !important;
+      }
+      h5{
+        display:flex;
+        align-items: center;
+      }
+    }
+  }
+  .app-recommend-list{
+    height: calc(~'100% - 150px');
+    .ant-table-body{
+      max-height:calc(~'100% - 30px') !important;
+    }
+  }
+  .app-recommend-pagination{
+    height: 50px;
+    display:flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+    align-items: center;
+    border: 1px solid #f2f2f2;
+    position: relative;
+    .ant-pagination-item{
+      font-size:12px
+    }
+    .ant-pagination-item-active{
+      border-color: var(--theme-color)
+    }
+    .ant-pagination-item-active a{
+      color: var(--theme-color) !important;
+    }
+    .type-active{
+      background: var(--theme-color);
+      color:#fff;
+      border-color: var(--theme-color);
+    }
+    .ant-btn{
+      font-size:12px;
+      border-radius: 0;
+      margin-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+
+.app-record-table{
+  background: #ffffff8c;
+  height: calc(~'100%');
+  width: calc(~'100%');
+  .app-record-list{
+    height: calc(~'100% - 50px');
+    .ant-table-body{
+      max-height:calc(~'100% - 30px') !important;
+    }
+  }
+  .ant-table .ant-table-tbody > tr > .music-score{
+    padding:0px !important;
+  }
+  .app-record-header{
+    height: 50px;
+    display:flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    padding-right: 18px;
+    align-items: center;
+    position: relative;
+    background: #ffffff8c;
+    .app-record-header-tips{
+      font-size:12px;
+      display:flex;
+      align-items: center;
+      .app-record-header-tips-days{
+        color:var(--theme-color);
+      }
+    }
+    .type-active{
+      background: var(--theme-color);
+      color:#fff;
+      border-color: var(--theme-color);
+    }
+    .ant-btn{
+      font-size:12px;
+      border-radius: 0;
+      margin-left: 20px;
+    }
+  }
+  .music-score{
+    position: relative;
+    height: inherit;
+    top: 0;
+    padding: 0 16;
+    display: flex;
+    align-items: center;
+    padding-right:0;
+  }
+}

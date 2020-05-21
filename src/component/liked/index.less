@@ -1,0 +1,37 @@
+.app-liked{
+  background: #ffffff8c;
+  height: calc(~'100%');
+  width: calc(~'100%');
+  .app-liked-header{
+    display:flex;
+    align-items: center;
+    height:50px;
+    padding:0 20px;
+    background: #ffffff85;
+    .ant-input{
+      border-radius: 0;
+      height:36px;
+      width:400px;
+    }
+    .iconfont{
+      font-size:30px;
+      margin-right:10px;
+      color:var(--theme-color);
+    }
+    .icon-icon-{
+      font-size:18px;
+      color:var(--theme-color);
+      margin-left:10px;
+      cursor: pointer;
+    }
+    span{
+      font-size:12px;
+    }
+  }
+  .app-liked-list{
+    height: calc(~'100% - 50px');
+    .ant-table-body{
+      max-height:calc(~'100% - 30px') !important;
+    }
+  }
+}

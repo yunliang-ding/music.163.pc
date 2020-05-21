@@ -1,0 +1,191 @@
+@import '//at.alicdn.com/t/font_1446686_bzb8i42s0xi.css';
+@import '~antd/dist/antd.css';
+#root{
+  width: 100%;
+  height: 100%;
+}
+::-webkit-scrollbar {/*滚动条整体样式*/
+  width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+  border-radius: 10px;
+  background: rgb(165, 164, 164);
+  opacity: 0.5;
+}
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+  border-radius: 10px;
+  background: rgb(247, 247, 247);
+}
+.app{
+  .ant-input{
+    font-size:12px;
+  }
+  .ant-select-selection{
+    font-size: 12px;
+  }
+  .app-music{
+    height:inherit;
+  }
+}
+.ant-calendar-cell{
+  font-size:12px !important;
+}
+.ant-select-dropdown-menu-item{
+  font-size:12px !important;
+}
+.ant-select-selection__rendered{
+  display:flex;
+  align-items: center;
+}
+.ant-select-enabled{
+  width:100px !important;
+}
+.ant-table .icon-bofang:hover{
+  color:var(--theme-color);
+}
+.ant-table-fixed-header .ant-table-scroll .ant-table-header{
+  overflow: hidden !important;
+}
+.ant-table {
+  font-size: 12px;
+  .ant-table-thead > tr > th {
+    font-size:12px;
+    padding: 6px 16px !important;
+    color: #aaa;
+    user-select: none;
+  };
+  .ant-table-tbody > tr > td {
+    padding: 10px !important;
+  };
+  .ant-table-row td{
+    font-size:12px !important;
+  }
+  .ant-table-header{
+    background: #ffffff8c !important;
+    margin-bottom:0 !important;
+    tr > th{
+      background: #ffffff00 !important;
+      border-bottom:0;
+    }
+  }
+  .ant-table-body {
+    background: #ffffffa1 !important;
+    tr > td{
+      border-bottom: 0 !important;
+    }
+  }
+  .music-playing{
+    color: var(--theme-color);
+  }
+}
+.icon-mv{
+  color:var(--theme-color);
+  cursor: pointer;
+  padding-left:10px;
+  position: relative;
+  top:2;
+  font-size:14px;
+}
+.ant-spin-blur{
+  opacity: 1 !important;
+}
+.ant-dropdown{
+  z-index:99999999999999 !important;
+}
+.ant-dropdown-menu-item{
+  span{
+    font-size:12px;
+  }
+}
+.ant-menu-item{
+  .music-theme{
+    height:20px;
+    width:20px;
+    display:block;
+    margin: 6px;
+  }
+}
+.ant-dropdown-menu-submenu-title{
+  font-size:12px;
+}
+.ant-badge-count{
+  box-shadow: 0 0 0 1px var(--theme-color);
+}
+.music-table-tools{
+  margin-left:20px;
+  .iconfont{
+    font-size:14px;
+    cursor: pointer;
+    color:var(--theme-color)
+  }
+}
+.ant-table-placeholder{
+  background: none;
+  border-bottom:0;
+  font-size:12px;
+  border:0 !important;
+}
+.music-table-tools-list{
+  position: absolute;
+  right:0;
+}
+.ant-message-success{
+  span{
+    font-size: 12px !important;
+  }
+}
+.ant-btn-bf-all{
+  display:flex !important;
+  align-items: center !important;
+  font-size:12px !important;
+  background:var(--theme-color) !important;
+  margin-left:10px !important;
+  color:#fff !important;
+  cursor: pointer !important;
+  border-radius: 20px !important;
+  border:0 !important;
+  width:100px !important;
+  padding:0 !important;
+  .iconfont{
+    color:#fff !important;
+    margin: 0 8px;
+    font-size:16px !important;
+  }
+}
+
+.ant-slider{
+  height: 3px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index:999999999 !important;
+  .ant-slider-rail{
+    height:3px !important;
+  }
+  .ant-slider-track{
+    background: var(--theme-color) !important;
+    height:3px !important;
+  }
+  .ant-slider-step{
+    background: #c7c7c759;
+    height:3px !important;
+  }
+  .ant-slider-handle{
+    border-color: var(--theme-color) !important;
+    background: var(--theme-color) !important;
+    width: 12px !important;
+    height: 12px !important;
+    display:none !important;
+  }
+  .ant-slider-handle:focus{
+    box-shadow: 0 0 0 0 !important;
+  }
+}
+.ant-slider:hover{
+  .ant-slider-handle{
+    display:block !important;
+  }
+}
+.ant-message{
+  z-index:999999999999 !important;
+}

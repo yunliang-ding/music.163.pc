@@ -1,0 +1,140 @@
+.app-playlist{
+  background: #ffffff8c;
+  height: calc(~'100%');
+  width: calc(~'100%');
+  padding: 10px 20px;
+  overflow: auto;
+  font-size:12px;
+  .app-playlist-title{
+    font-size:13px;
+    height:40px;
+    display:flex;
+    align-items: center;
+    color:#111;
+    border-bottom: 3px solid var(--theme-color);
+  }
+  .app-playlist-body{
+    display:flex;
+    flex-flow: wrap;
+    .app-playlist-body-item{
+      width:160px;
+      display:flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+      font-size:12px;
+      margin:10px 30px 10px 0;
+      cursor: pointer;
+      img{
+        margin-bottom:10px;
+        filter: brightness(1.1);
+        border-radius: 4px;
+      }
+      span{
+        color:#111;
+        font-size:13px;
+      }
+    }
+  }
+}
+.app-playlist-table{
+  height: calc(~'100%');
+  width: calc(~'100%');
+  background: #ffffff8a;
+  .app-playlist-header{
+    height:250px;
+    font-size:20px;
+    display: flex;
+    align-items: center;
+    padding:0 60px;
+    width:100%;
+    background: #ffffff8a;
+    .dates{
+      height:200px;
+      width:200px;
+      margin-right:20px;
+      img{
+        border-radius: 8px;
+      }
+    }
+    .infos{
+      height: 100%;
+      padding: 20px 0;
+      .ant-btn-bf-all{
+        margin-left:0 !important;
+        margin-top:20px !important;
+      }
+      img{
+        border-radius: 50%;
+      }
+      h3{
+        display:flex;
+        align-items: center;
+        color:#555 !important;
+        span{
+          color: var(--theme-color);
+          font-size: 12px;
+          padding: 5px;
+          height: 28px;
+          width: 36px;
+          border: 1px solid var(--theme-color);
+          border-radius: 4px;
+          margin-right:8px;
+        }
+      }
+      h5{
+        display:flex;
+        color:#555 !important;
+        align-items: center;
+        font-weight: normal;
+      }
+      .iconfont{
+        font-size:18px;
+        color:var(--theme-color);
+        margin-left:10px;
+        cursor: pointer;
+      }
+      .app-playlist-header-number{
+        font-size:12px;
+        margin-top:20px;
+        span{
+          margin-right:8px;
+        }
+      }
+    }
+  }
+  .app-playlist-list{
+    height: calc(~'100% - 250px');
+    .ant-table-body{
+      max-height:calc(~'100% - 30px') !important;
+    }
+  }
+  .app-playlist-pagination{
+    height: 50px;
+    display:flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+    align-items: center;
+    border: 1px solid #f2f2f2;
+    position: relative;
+    .ant-pagination-item{
+      font-size:12px
+    }
+    .ant-pagination-item-active{
+      border-color: var(--theme-color)
+    }
+    .ant-pagination-item-active a{
+      color: var(--theme-color) !important;
+    }
+    .type-active{
+      background: var(--theme-color);
+      color:#fff;
+      border-color: var(--theme-color);
+    }
+    .ant-btn{
+      font-size:12px;
+      border-radius: 0;
+      margin-left: 10px;
+    }
+  }
+}
