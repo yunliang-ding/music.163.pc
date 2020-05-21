@@ -25,18 +25,28 @@
   .yui-table-body{
     height: calc(100% - 40px);
     overflow-y: auto;
+    .yui-table-body-tr{
+      border:0;
+      .yui-table-body-td{
+        padding-right:0;
+      }
+    }
   }
 }
 .yui-table-dark{
   .yui-table-body{
     background-color: #1e1e1e !important;
     .yui-table-body-tr{
-      border:0;
       background-color: #1e1e1e;
       .yui-table-body-td{
         color:#aaa;
-        padding-right:0;
       }
     }
+    .yui-table-body-tr:hover{
+      background-color: #222;
+    }
   }
+}
+.icon-shengyin{
+  color:var(--theme-color);
 }

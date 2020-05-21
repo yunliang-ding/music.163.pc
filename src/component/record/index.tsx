@@ -61,7 +61,7 @@ class RecordTable extends React.Component<any, any> {
             className='iconfont icon-xihuan'
           >
           </i>
-          <i className={id === music.id ? 'iconfont icon-bofang music-playing' : 'iconfont icon-bofang'} style={{
+          <i className={id === music.id ? 'iconfont icon-shengyin' : 'iconfont icon-bofang'} style={{
             cursor: 'pointer',
             width: '30%'
           }} onClick={
@@ -152,7 +152,7 @@ class RecordTable extends React.Component<any, any> {
           display: 'flex',
           alignItems: 'center',
           width: record.score + '%',
-          background: '#9dc3ec47',
+          background: this.props.UI.theme === 'dark' ? '#3c3b3b1f' : '#9dc3ec47',
           padding: '0 10px',
           whiteSpace: 'nowrap',
         }}>

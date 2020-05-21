@@ -4,6 +4,7 @@ import './index.less'
 @inject('Music', 'UI')
 @observer
 class PlayListIndex extends React.Component<any, any> {
+  [x: string]: any
   constructor(props) {
     super(props)
   }

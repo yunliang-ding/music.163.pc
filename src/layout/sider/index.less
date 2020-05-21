@@ -35,6 +35,14 @@
     width:100%;
     .yui-nav-dark{
       color:#bbb;
+      background-color: #181818;
+      .yui-nav-compont-menu-item, .yui-nav-compont-menu-item2, .yui-nav-compont-menu-item-subMeun, .yui-nav-compont-menu-item-subMeun-active{
+        background-color: #181818 !important;
+        border-color:#181818;
+      }
+      .yui-nav-compont-menu-item-subMeun-active{
+        border-color:var(--theme-color);
+      }
     }
     .yui-nav, .yui-nav-dark{
       .yui-nav-compont-menu-item-subMeun,.yui-nav-compont-menu-item-subMeun-active{
@@ -49,8 +57,11 @@
   }
 }
 .app-sider-dark{
+  .iconfont{
+    color:#bbb !important;
+  }
   .sider-header{
-    background-color: #1e1e1e;
+    background-color: #181818;
     .icon-arrow-left-copy{
       color:#bbb
     }

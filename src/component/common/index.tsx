@@ -57,7 +57,7 @@ class CommonTable extends React.Component<any, any> {
               className='iconfont icon-xihuan'
             >
             </i>
-            <i className={id === music.id ? 'iconfont icon-bofang music-playing' : 'iconfont icon-bofang'} style={{
+            <i className={id === music.id ? 'iconfont icon-shengyin' : 'iconfont icon-bofang'} style={{
               cursor: 'pointer',
               width: '30%'
             }} onClick={

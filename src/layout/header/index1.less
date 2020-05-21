@@ -16,11 +16,13 @@
   }
   .app-header-search{
     position: absolute;
-    right: 140px;
+    left: 210px;
     top: 10px;
     z-index: 9;
+    width: calc(100% - 340px);
     .yui-input{
       color:#333;
+      width:100%;
     }
     .input-dark{
       background-color: #1e1e1e;
@@ -33,6 +35,9 @@
     .yui-nav-logo{
       height:100%;
       left:-10px !important;
+      width:200px;
+      background-color: #f7f5f5;
+      color:#333;
       .iconfont{
         margin-right:8px;
       }
@@ -46,7 +51,15 @@
     }
   }
   .yui-nav{
-    background-color: var(--theme-color);
+    background-color: #fff;
+  }
+  .yui-nav-dark{
+    background-color: #1e1e1e;
+    .yui-nav-logo{
+      width:200px;
+      background-color: #181818;
+      color:#fff;
+    }
   }
   .yui-select{
     background-color: var(--theme-color);

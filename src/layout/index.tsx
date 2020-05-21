@@ -57,7 +57,6 @@ class Layout extends React.Component<any, any> {
           </div>
         }
         <div className='app-layout' style={{
-          filter: loading ? 'blur(2px)' : 'blur(0px)',
           display: isFullScreen ? 'none' : 'flex'
         }}>
           <Sider />

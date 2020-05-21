@@ -45,7 +45,7 @@ class Video extends React.Component<any, any> {
         <Slider
           dark={this.props.UI.theme === 'dark'}
           siderWidth={this.state.siderWidth}
-          siderHeight={6}
+          siderHeight={4}
           progress={Math.ceil(progress / duration * 100)}
           onChange={
             (e) => {
