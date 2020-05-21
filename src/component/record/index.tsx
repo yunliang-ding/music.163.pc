@@ -42,12 +42,13 @@ class RecordTable extends React.Component<any, any> {
       label: '',
       dataIndex: 'id',
       key: 'id',
-      width: '13%',
+      width: '33.3%',
       render: (id, record) => {
         return <div style={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          width: 120
         }}>
           <span style={{
             width: '30%'
@@ -85,7 +86,7 @@ class RecordTable extends React.Component<any, any> {
       dataIndex: 'name',
       key: 'name',
       ellipsis: true,
-      width: '35%',
+      width: '33.3%',
       render: (name, record) => {
         return <div title={name + '-' + record.artists} style={{
           display: 'flex',
@@ -143,11 +144,11 @@ class RecordTable extends React.Component<any, any> {
       label: '播放次数',
       dataIndex: 'playCount',
       key: 'playCount',
-      width: '40%',
+      width: '33.3%',
       className: 'music-score',
       render: (playCount, record) => {
         return <div style={{
-          height: 50,
+          height: 42,
           display: 'flex',
           alignItems: 'center',
           width: record.score + '%',
@@ -160,7 +161,6 @@ class RecordTable extends React.Component<any, any> {
       }
     }]
     let theme = this.props.UI.theme === 'dark' ? '-dark' : ''
-    console.log(columns)
     return <div className={`app-record-table${theme}`}>
       <div className='app-record-header'>
         <div className='app-record-header-tips'>
@@ -169,7 +169,7 @@ class RecordTable extends React.Component<any, any> {
           <b>天</b>
           <Button
             dark={this.props.UI.theme === 'dark'}
-            style={{ width: 80, margin: '20px 0' }}
+            style={{ width: 80, margin: '0 20px' }}
             label='播放全部'
             onClick={
               () => {
@@ -178,33 +178,41 @@ class RecordTable extends React.Component<any, any> {
             }
           />
         </div>
-        <div>
-          <Button className={type === 1 ? 'type-active' : ''} onClick={
-            () => {
-              setSearchRecordForm('type', 1)
+        <div style={{display: 'flex', width: 140, justifyContent: 'space-between'}}>
+          <Button
+            label='本周'
+            dark={this.props.UI.theme === 'dark'}
+            style={{ width: 60 }}
+            type={type === 1 ? 'primary' : 'normal'}
+            onClick={
+              () => {
+                setSearchRecordForm('type', 1)
+              }
             }
-          }>
-            本周
-          </Button>
-          <Button className={type === 0 ? 'type-active' : ''} onClick={
-            () => {
-              setSearchRecordForm('type', 0)
+          />
+          <Button
+            label='所有'
+            style={{ width: 60 }}
+            dark={this.props.UI.theme === 'dark'}
+            type={type === 0 ? 'primary' : 'normal'}
+            onClick={
+              () => {
+                setSearchRecordForm('type', 0)
+              }
             }
-          }>
-            所有
-          </Button>
+          />
         </div>
       </div>
       {
         init ? <div className='app-common-table-empty' ref={table => { this.tableNode = table }}>
-          loading
+            Loading...
           </div>
           : <div className='app-record-list' ref={table => { this.tableNode = table }}>
             <Table
               style={{ height: this.state.tableHeight, border: 'none' }}
               dark={this.props.UI.theme === 'dark'}
               data={toJS(data)}
-              column={columns}
+              colmun={columns}
             />
           </div>
       }
