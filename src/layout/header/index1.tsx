@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { observer, inject } from 'mobx-react'
-import { Nav, Select, Input } from 'react-ryui'
+import { Nav, Select, Input, Button } from 'react-ryui'
 import './index1.less'
 @inject('Music', 'UI')
 @observer
@@ -15,6 +15,7 @@ class Header extends React.Component<any, any> {
       searchForm: {
         keywords
       },
+      querySearch,
       setSearchForm
     } = this.props.Music
     return <div className='app-header'>
@@ -34,16 +35,39 @@ class Header extends React.Component<any, any> {
       <div className='app-header-search'>
         <Input
           dark={this.props.UI.theme === 'dark'}
-          placeholder='关键字查找-回车'
+          placeholder='关键字查找'
           style={{ width: 200 }}
-          defaultValue={keywords}
-          // onPressEnter={
-          //   (e: any) => {
-          //     setSearchForm('keywords', e.target.value)
-          //     window.location.hash = '/app/music.163.search'
-          //   }
-          // }
+          value={keywords}
+          onChange={
+            (e: any) => {
+              setSearchForm('keywords', e.target.value)
+            }
+          }
         />
+        <Button
+          style={{ width: 40, marginLeft: 10 }}
+          label={<i className='iconfont icon-search'></i>}
+          dark={this.props.UI.theme === 'dark'}
+          onClick={
+            () => {
+              querySearch()
+              setSearchForm('offset', 0)
+              window.location.hash = '/app/music.163.search'
+            }
+          }
+        />
+      </div>
+      <div className='app-header-history'>
+        <i className='iconfont icon-qianjin-copy-copy' onClick={
+          () => {
+            window.history.go(-1)
+          }
+        }></i>
+        <i style={{ marginLeft: 20 }} className='iconfont icon-qianjin-Outline' onClick={
+          () => {
+            window.history.go(1)
+          }
+        }></i>
       </div>
       <Nav
         type='right'

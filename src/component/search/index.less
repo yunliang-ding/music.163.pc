@@ -1,4 +1,4 @@
-.app-search-table{
+.app-search-table, .app-search-table-dark{
   background: #ffffff8c;
   height: calc(~'100%');
   width: calc(~'100%');
@@ -7,7 +7,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height:80px;
+    height:50px;
     background: #ffffff8c;
     .ant-input{
       border-radius: 4;
@@ -24,7 +24,7 @@
     }
   }
   .app-search-list{
-    height: calc(~'100% - 130px');
+    height: calc(~'100% - 100px');
     .ant-table-body{
       max-height:calc(~'100% - 30px') !important;
     }
@@ -62,4 +62,16 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
+}
+.app-search-table-dark{
+  background: #1e1e1e;
+  .app-search-header{
+    background: #1e1e1e;
+    .app-search-info{
+      color:#ccc;
+    }
+  }
+  .app-search-pagination{
+    background: #1e1e1e;
+  }
 }

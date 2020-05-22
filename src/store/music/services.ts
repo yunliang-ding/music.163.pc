@@ -465,7 +465,6 @@ class MusicServices implements MusicInterface {
   }
   @action setSearchForm = (_key: string, _value: any): void => {
     this.searchForm[_key] = _value
-    this.querySearch()
   }
   @action setSearchRecordForm = (_key: string, _value: any): void => {
     this.searchRecordForm[_key] = _value

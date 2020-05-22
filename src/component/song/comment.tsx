@@ -1,9 +1,9 @@
 import * as React from "react"
 import { observer, inject } from 'mobx-react'
-import Pagination from 'antd/es/pagination'
+import { Pagination } from 'react-ryui'
 import { Comment, Icon, Tooltip, Avatar } from 'antd';
 import './index.less'
-@inject('Music')
+@inject('Music', 'UI')
 @observer
 class MusicComment extends React.Component {
   props: any;
@@ -15,17 +15,20 @@ class MusicComment extends React.Component {
       music: {
         comment
       },
-      simiArray:{
+      simiArray: {
         data
       },
       player,
       setCommentForm,
-      commentForm:{
+      commentForm: {
         offset,
         limit,
         count
       }
     } = this.props.Music
+    console.log( offset,
+        limit,
+        count)
     return <div className='app-song-comment'>
       <div className='app-song-comment-left'>
         <div className='app-song-comment-title'>
@@ -34,7 +37,7 @@ class MusicComment extends React.Component {
         </div>
         <div className='app-song-comment-body'>
           {
-            comment && comment.map(_item=>{
+            comment && comment.map(_item => {
               return <Comment
                 actions={[
                   <span key="comment-basic-like">
@@ -56,7 +59,7 @@ class MusicComment extends React.Component {
                   />
                 }
                 content={
-                  <p style={{fontSize: 12}}>
+                  <p style={{ fontSize: 12 }}>
                     {_item.content}
                   </p>
                 }
@@ -71,17 +74,13 @@ class MusicComment extends React.Component {
         </div>
         <div className='app-song-comment-pagination'>
           <Pagination
+            dark={this.props.UI.theme === 'dark'}
             current={offset + 1}
             total={count}
             pageSize={limit}
             onChange={
               (page) => {
                 setCommentForm('offset', page - 1)
-              }
-            }
-            onShowSizeChange={
-              (current, size) => {
-                setCommentForm('limit', size)
               }
             }
           />
@@ -93,7 +92,7 @@ class MusicComment extends React.Component {
             相似歌曲
           </div>
           {
-            data && data.map(_item=>{
+            data && data.map(_item => {
               return <div className='app-song-simi-item' key={_item.id}>
                 <div className='simi-img'>
                   <img src={_item.album.blurPicUrl + '?param=34y34'} />

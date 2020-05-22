@@ -25,15 +25,28 @@
       }
     }
   }
-  .app-header-search{
+  .app-header-history{
     position: absolute;
     left: 210px;
+    top: 14px;
+    z-index: 9;
+    width: 60px;
+    .iconfont{
+      font-size:16px;
+      color:#aaa;
+      cursor: pointer;
+    }
+  }
+  .app-header-search{
+    position: absolute;
+    left: 280px;
     top: 10px;
     z-index: 9;
-    width: calc(100% - 340px);
+    width: calc(100% - 420px);
+    display: flex;
     .yui-input{
       color:#333;
-      width:100%;
+      width:calc(100% - 50px);
     }
     .input-dark{
       background-color: #1e1e1e;

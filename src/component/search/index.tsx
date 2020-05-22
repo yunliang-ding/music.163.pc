@@ -1,12 +1,12 @@
 import * as React from "react"
 import { observer, inject } from 'mobx-react'
-import Input from 'antd/es/input'
-import Pagination from 'antd/es/pagination'
+import { Pagination } from 'react-ryui'
 import './index.less'
 import { CommonTable } from "../common/index";
-@inject('Music')
+@inject('Music', 'UI')
 @observer
 class SearchTable extends React.Component<any, any> {
+  [x: string]: any;
   constructor(props) {
     super(props)
   }
@@ -21,15 +21,12 @@ class SearchTable extends React.Component<any, any> {
         offset,
         keywords
       },
-      setSearchForm
+      setSearchForm,
+      querySearch
     } = this.props.Music
-    return <div className='app-search-table'>
+    let theme = this.props.UI.theme === 'dark' ? '-dark' : ''
+    return <div className={`app-search-table${theme}`}>
       <div className='app-search-header'>
-        <Input placeholder='关键字查找' value={keywords} onChange={
-          (e) => {
-            this.props.Music.setSearchForm('keywords', e.target.value)
-          }
-        } />
         <div className='app-search-info'>
           搜索"<span> {keywords} </span>"
           找到<span> {count} </span>首单曲
@@ -40,19 +37,14 @@ class SearchTable extends React.Component<any, any> {
       </div>
       <div className='app-search-pagination'>
         <Pagination
+          dark={this.props.UI.theme === 'dark'}
           current={offset + 1}
           total={count}
           pageSize={limit}
-          pageSizeOptions={['30', '50', '100']}
-          showSizeChanger
           onChange={
             (page) => {
               setSearchForm('offset', page - 1)
-            }
-          }
-          onShowSizeChange={
-            (current, size) => {
-              setSearchForm('limit', size)
+              querySearch()
             }
           }
         />
