@@ -24,7 +24,7 @@ class RecordTable extends React.Component<any, any> {
         tableHeight: this.tableNode.getBoundingClientRect().height
       })
     })
-    window.parent.document.querySelector('iframe').contentWindow.addEventListener('resize', (e) => {
+    window.parent.document.querySelector('iframe') && window.parent.document.querySelector('iframe').contentWindow.addEventListener('resize', (e) => {
       this.tableNode && this.setState({
         tableHeight: this.tableNode.getBoundingClientRect().height
       })

@@ -1,10 +1,41 @@
 <meta charset="utf-8">
 <title id="title">music.163.web</title>
+<style>
+  body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+  }
+  .load-spin{
+    height:100vh;
+    width:100vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .load-spin-iconfont{
+    font-size: 60px !important;
+    color:var(--theme-color);
+    animation:load-spin-move 3s linear infinite;
+  }
+  @keyframes load-spin-move{
+    0%{-webkit-transform:rotate(0deg);}
+    25%{-webkit-transform:rotate(90deg);}
+    50%{-webkit-transform:rotate(180deg);}
+    75%{-webkit-transform:rotate(270deg);}
+    100%{-webkit-transform:rotate(360deg);}
+  }
+</style>
+<link rel="stylesheet" href='//at.alicdn.com/t/font_1446686_gnbl0kpf8e.css'>
 <script src="https://cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
 <script src="https://cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdn.bootcss.com/react-router/3.2.4/ReactRouter.min.js"></script>
 <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdn.bootcss.com/antd/3.22.0/antd.min.js"></script>
-<link rel="stylesheet" href="./skin/red.css" id='app-theme'>
-<div id='root'></div>
+<link rel="stylesheet" href="./skin/dark.css" id='app-theme'>
+<div id='root'>
+  <div class='load-spin'>
+    <i class='iconfont icon-loading1 load-spin-iconfont'></i>
+  </div>
+</div>
 <script src='./main.js'></script>

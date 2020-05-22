@@ -34,7 +34,7 @@ class Video extends React.Component<any, any> {
         siderWidth: this.sliderNode.getBoundingClientRect().width
       })
     })
-    window.parent.document.querySelector('iframe').contentWindow.addEventListener('resize', () => {
+    window.parent.document.querySelector('iframe') && window.parent.document.querySelector('iframe').contentWindow.addEventListener('resize', () => {
       this.sliderNode && this.setState({
         siderWidth: this.sliderNode.getBoundingClientRect().width
       })

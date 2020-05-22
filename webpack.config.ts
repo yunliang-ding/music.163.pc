@@ -18,7 +18,7 @@ function getIPAdress() {
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    path: process.env.NODE_ENV == "production" ? path.resolve(__dirname, '../out/frontend/public/') : path.resolve(__dirname, 'www/'),
+    path: process.env.NODE_ENV == "production" ? path.resolve(__dirname, './out/frontend/public/') : path.resolve(__dirname, 'www/'),
     filename: 'main.js'
   },
   // 添加需要解析的文件格式
