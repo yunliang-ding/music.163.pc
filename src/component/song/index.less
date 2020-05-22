@@ -1,4 +1,4 @@
-.app-song{
+.app-song, .app-song-dark{
   background: #ffffffad;
   min-height: 100%;
   height: 100%;
@@ -191,6 +191,66 @@
               cursor: pointer;
             }
             width:20%;
+          }
+        }
+      }
+    }
+  }
+}
+.app-song-dark{
+  background: #1e1e1e;
+  .app-song-body{
+    background: #1e1e1e;
+    .app-song-image{
+      img{
+        box-shadow: 0px 1px 7px 0px #111;
+      }
+      .app-song-image-tools{
+        .app-song-image-tools-item{
+          background: #1e1e1e;
+          .iconfont{
+            color:#ccc;
+          }
+        }
+      }
+    }
+    .app-song-lyric{
+      .app-lyric-title{
+        .app-lyric-title-dq{
+          h1{
+            color:#ccc;
+          }
+          span{
+            color:#ccc;
+          }
+        }
+        .app-lyric-title-singer{
+          color:#ccc;
+          span{
+            color:rgb(139, 187, 233);
+          }
+        }
+      }
+    }
+  }
+  .app-song-comment{
+    background: #1e1e1e;
+    color: #ccc;
+    .ant-comment-content-author-name{
+      a{
+        color:#ccc;
+      }
+    }
+    .ant-comment-actions{
+      span, i{
+        color:#ccc;
+      }
+    }
+    .app-song-comment-right{
+      .app-song-simi{
+        .simi-name{
+          span{
+            color:#ccc;
           }
         }
       }

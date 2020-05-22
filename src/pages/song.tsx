@@ -2,7 +2,7 @@ import * as React from "react"
 import { MusicSong } from '../component/song'
 import { MusicComment } from '../component/song/comment'
 import { observer, inject } from 'mobx-react'
-@inject('Music')
+@inject('Music', 'UI')
 @observer
 class Song extends React.Component {
   props:any;
@@ -22,7 +22,8 @@ class Song extends React.Component {
     this.init()
   }
   render() {
-    return <div className='app-song'>
+    let theme = this.props.UI.theme === 'dark' ? '-dark' : ''
+    return <div className={`app-song${theme}`}>
       <MusicSong />
       <MusicComment />
     </div>

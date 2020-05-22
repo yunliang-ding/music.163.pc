@@ -111,11 +111,11 @@
   }
   .app-player-mv{
     position: absolute;
-    bottom:50;
+    bottom:52;
     left:200;
     width:calc(~'100% - 200px');
     height:400px;
-    z-index:99999;
+    z-index:999;
     background: #fff;
     border:1px solid #eee;
     .app-player-mv-tools{
@@ -148,11 +148,11 @@
   }
   .app-player-record{
     position: absolute;
-    bottom:50;
+    bottom:52;
     left:200;
     width:calc(~'100% - 200px');
     height:400px;
-    z-index:999999;
+    z-index:999;
     border:1px solid #eee;
     .app-player-record-body{
       width:100%;
@@ -280,6 +280,64 @@
     }
     .iconfont{
       color:#aaa !important;
+    }
+  }
+  .app-player-record{
+    border:1px solid #181818;
+    .app-player-record-list-body-none{
+      color:#ccc;
+    }
+    .app-player-record-body{
+      background: #1e1e1e;
+      .app-player-record-list{
+        .app-player-record-list-title{
+          background: #1e1e1e;
+          color:#ccc;
+        }
+        .app-player-record-list-body{
+          .app-player-record-list-item{
+            color:#bbb;
+            .app-player-record-list-song-active{
+              color:var(--theme-color);
+            }
+            .app-player-record-list-artists{
+              color:#bbb;
+            }
+            .app-player-record-iconfont-active{
+              color:var(--theme-color);
+            }
+          }
+        }
+      }
+      .app-player-record-lyric{
+        .app-player-record-lyric-title{
+          background: #1e1e1e;
+          .iconfont{
+            color:#ccc !important;
+          }
+          .app-player-record-lyric-title-name{
+            color:#ccc;
+          }
+          .app-player-record-lyric-title-artists{
+            color:#ccc;
+          }
+        }
+      }
+    }
+  }
+  .app-player-mv{
+    background: #1e1e1e;
+    border:1px solid #181818;
+    .app-player-mv-tools{
+      border:1px solid #1e1e1e;
+      background: #1e1e1e;
+      color:#ccc;
+      .iconfont{
+        color:#ccc;
+      }
+    }
+    .app-player-mv-body{
+      background: #1e1e1e;
     }
   }
 }

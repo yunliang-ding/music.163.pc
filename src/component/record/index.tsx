@@ -193,7 +193,7 @@ class RecordTable extends React.Component<any, any> {
             label='本周'
             dark={this.props.UI.theme === 'dark'}
             style={{ width: 60 }}
-            type={type === 1 ? 'primary' : 'normal'}
+            type={type === 1 ? 'blue' : 'normal'}
             onClick={
               () => {
                 setSearchRecordForm('type', 1)
@@ -204,7 +204,7 @@ class RecordTable extends React.Component<any, any> {
             label='所有'
             style={{ width: 60 }}
             dark={this.props.UI.theme === 'dark'}
-            type={type === 0 ? 'primary' : 'normal'}
+            type={type === 0 ? 'blue' : 'normal'}
             onClick={
               () => {
                 setSearchRecordForm('type', 0)

@@ -2,7 +2,7 @@ import * as React from "react"
 import { observer, inject } from 'mobx-react'
 import './index.less'
 const $ = document.querySelectorAll.bind(document)
-@inject('Music')
+@inject('Music', 'UI')
 @observer
 class Lyric extends React.Component {
   props: any;
@@ -18,7 +18,7 @@ class Lyric extends React.Component {
       let second = (Number.parseInt(time[0]) * 60 + Number.parseInt(time[1])) * 1000
       let timeNext = _arr[_index + 1] && _arr[_index + 1].getAttribute('data-time') && _arr[_index + 1].getAttribute('data-time').split(':') || [0,0]
       let secondNext = (Number.parseInt(timeNext[0]) * 60 + Number.parseInt(timeNext[1])) * 1000
-      let color = ( second <  progress && progress < secondNext ) ? '#000' : '#666'
+      let color = ( second <  progress && progress < secondNext ) ? (this.props.UI.theme === 'dark' ? '#fff' : '#000') : '#888'
       let fontSize = ( second <  progress && progress < secondNext ) ? 14 : 13
       if(color === 'var(--theme-color)'){ // 页面自动滚动
         this.props.Music.setLyricScrollTop(Number.parseInt(_item.offsetTop) - 200)

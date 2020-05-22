@@ -56,7 +56,7 @@ class MusicComment extends React.Component {
                   />
                 }
                 content={
-                  <p style={{fontSize: 14}}>
+                  <p style={{fontSize: 12}}>
                     {_item.content}
                   </p>
                 }

@@ -4,6 +4,7 @@ import Message from 'antd/es/message'
 @inject('UI', 'Music')
 @observer
 class PlaySongList extends React.Component<any, any> {
+  [x: string]: any
   constructor(props) {
     super(props)
   }

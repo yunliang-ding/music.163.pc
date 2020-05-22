@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { observer, inject } from 'mobx-react'
 import { Lyric } from '../../component/song/lyric'
-import Empty from 'antd/es/empty'
 @inject('Music', 'UI')
 @observer
 class PlayRecord extends React.Component<any, any> {
@@ -57,7 +56,7 @@ class PlayRecord extends React.Component<any, any> {
                   </div>
                 })
                 : <div className='app-player-record-list-body-none'>
-                  <Empty />
+                  暂无数据
                 </div>
               }
             </div>
