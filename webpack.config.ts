@@ -1,4 +1,5 @@
 const path = require("path")
+const packageName = require('./package.json').name;
 const TerserPlugin = require('terser-webpack-plugin')
 const os = require('os')
 function getIPAdress() {
@@ -19,7 +20,10 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: process.env.NODE_ENV == "production" ? path.resolve(__dirname, './out/frontend/public/') : path.resolve(__dirname, 'www/'),
-    filename: 'main.js'
+    filename: 'main.js',
+    library: `${packageName}-[name]`,
+    libraryTarget: 'umd',
+    jsonpFunction: `webpackJsonp_${packageName}`,
   },
   // 添加需要解析的文件格式
   resolve: {
@@ -89,7 +93,7 @@ module.exports = {
     contentBase: './www',
     proxy: [{
       context: ['/api'],
-      target: 'http://49.233.85.54:3000',
+      target: `http://${getIPAdress()}:3000`,
       pathRewrite: { '^/api': '' },
       changeOrigin: true,
       secure: true

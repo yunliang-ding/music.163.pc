@@ -14,7 +14,7 @@ class Video extends React.Component<any, any> {
     }
   }
   componentDidUpdate() {
-    $('#title').innerHTML = this.props.Music.music.name || 'music.163.web'
+    $('#title').innerHTML = this.props.Music.music.name
   }
   componentDidMount() {
     $('#vidio').ontimeupdate = (e) => {

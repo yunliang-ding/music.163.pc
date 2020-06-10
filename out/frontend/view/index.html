@@ -1,34 +1,46 @@
-<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-<title id="title">music.163.app</title>
-<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
-<script src="//cdn.bootcss.com/layer/3.0.1/layer.min.js"></script>
-<link href="//cdn.bootcss.com/layer/3.0.1/skin/default/layer.css" rel="stylesheet">
-<link rel="shortcut icon" href="//s1.music.126.net/style/favicon.ico?v20180823">
-<script>
-  layer.open({
-    type: 2,
-    title: '',
-    shadeClose: true,
-    resize:true,
-    closeBtn: 0,
-    shade: false,
-    maxmin: true, //开启最大化最小化按钮
-    area: ['80%', '80%'],
-    content: '//49.233.85.54:3100/music.163.pc.html',
-    move: '.app-header'
-  });
-</script>
+<title id="title"></title>
 <style>
   body{
     background:#121212;
   }
-  #layui-layer-iframe1{
-    background:#1e1e1e !important;
+</style>
+<meta charset="utf-8">
+<style>
+  body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
   }
-  .layui-layer-min{
-    display:none !important;
+  .load-spin{
+    height:100vh;
+    width:100vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
-  .layui-layer-border{
-    border: 0 !important;
+  .load-spin-iconfont{
+    font-size: 60px !important;
+    color:var(--theme-color);
+    animation:load-spin-move 3s linear infinite;
+  }
+  @keyframes load-spin-move{
+    0%{-webkit-transform:rotate(0deg);}
+    25%{-webkit-transform:rotate(90deg);}
+    50%{-webkit-transform:rotate(180deg);}
+    75%{-webkit-transform:rotate(270deg);}
+    100%{-webkit-transform:rotate(360deg);}
   }
 </style>
+<link rel="stylesheet" href='//at.alicdn.com/t/font_1446686_gnbl0kpf8e.css'>
+<script src="https://cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.bootcss.com/react-router/3.2.4/ReactRouter.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.bootcss.com/antd/3.22.0/antd.min.js"></script>
+<link rel="stylesheet" href="./skin/dark.css" id='app-theme'>
+<div id='root'>
+  <div class='load-spin'>
+    <svg class='icon-loading load-spin-iconfont' t="1591172603418" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4716" width="64" height="64"><path d="M538.5344 266.4448a133.12 133.12 0 1 1 133.12-133.12 133.4272 133.4272 0 0 1-133.12 133.12zM255.0144 372.1984a121.6768 121.6768 0 1 1 121.6768-121.6768 121.856 121.856 0 0 1-121.6768 121.6768zM134.72 647.424a107.3664 107.3664 0 1 1 107.3664-107.264A107.52 107.52 0 0 1 134.72 647.424z m120.32 272.4608a90.9824 90.9824 0 1 1 90.9824-90.9824A91.1616 91.1616 0 0 1 255.04 919.8848zM538.5344 1024a79.36 79.36 0 1 1 79.36-79.36 79.36 79.36 0 0 1-79.36 79.36z m287.6928-134.144a64.1792 64.1792 0 1 1 64.1792-64.1792 64.3584 64.3584 0 0 1-64.1792 64.1792z m117.76-296.704a52.6336 52.6336 0 1 1 52.6592-52.6336 52.608 52.608 0 0 1-52.6336 52.6336z m-158.72-338.7136a40.96 40.96 0 1 1 12.0064 28.8512 40.5248 40.5248 0 0 1-12.0064-28.8512z" p-id="4717" fill="#1296db"></path></svg>
+  </div>
+</div>
+<script src='./main.js'></script>
