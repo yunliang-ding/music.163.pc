@@ -92,9 +92,9 @@ module.exports = {
     compress: true,
     contentBase: './www',
     proxy: [{
-      context: ['/api'],
+      context: ['/musicapi'],
       target: `http://${getIPAdress()}:3000`,
-      pathRewrite: { '^/api': '' },
+      pathRewrite: { '^/musicapi': '' },
       changeOrigin: true,
       secure: true
     }]

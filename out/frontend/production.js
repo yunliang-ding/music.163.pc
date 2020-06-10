@@ -24,10 +24,10 @@ const port = 8002
 app.use(cors()) // cors
 app.use(express.static('./frontend/public')) // 开启静态资源访问
 // 接口的代理1
-app.use('/api/*', proxy({
+app.use('/musicapi/*', proxy({
     target: proxyUrl,
     changeOrigin: true,
-    pathRewrite: { '^/api': '' }
+    pathRewrite: { '^/musicapi': '' }
   })
 )
 // 项目

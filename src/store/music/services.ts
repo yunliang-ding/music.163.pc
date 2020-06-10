@@ -76,7 +76,7 @@ class MusicServices implements MusicInterface {
     limit: 30
   }
   @action logOut = async () => {
-    const { code } = await get('/api/logout', {})
+    const { code } = await get('/musicapi/logout', {})
     if (code === 200) {
       localStorage.removeItem('userInfo')
       UI.removeUserMenus()
@@ -108,7 +108,7 @@ class MusicServices implements MusicInterface {
         phone: username,
         password
       }
-    const url = loginWay === 1 ? '/api/login' : '/api/login/cellphone'
+    const url = loginWay === 1 ? '/musicapi/login' : '/musicapi/login/cellphone'
     const {
       code,
       msg,
@@ -143,10 +143,10 @@ class MusicServices implements MusicInterface {
     return false
   }
   @action signin = async () => {
-    await get('/api/daily_signin', {})
+    await get('/musicapi/daily_signin', {})
   }
   @action queryRecord = async (): Promise<void> => {
-    const { code, weekData, allData } = await get('/api/user/record', {
+    const { code, weekData, allData } = await get('/musicapi/user/record', {
       uid: this.userInfo.userId,
       type: this.searchRecordForm.type
     })
@@ -170,7 +170,7 @@ class MusicServices implements MusicInterface {
     })
   }
   @action queryRecommend = async (): Promise<void> => {
-    const { code, recommend } = await get(`/api/recommend/songs?&timestamp=${new Date().getTime()}`, {})
+    const { code, recommend } = await get(`/musicapi/recommend/songs?&timestamp=${new Date().getTime()}`, {})
     code === 200 && runInAction(() => {
       this.recommendArray = {
         data: recommend.map((_item, _index) => {
@@ -188,7 +188,7 @@ class MusicServices implements MusicInterface {
     })
   }
   @action getLikeList = async (): Promise<void> => {
-    const { ids, code } = await get(`/api/likelist?&timestamp=${new Date().getTime()}`, {
+    const { ids, code } = await get(`/musicapi/likelist?&timestamp=${new Date().getTime()}`, {
       uid: this.userInfo.userId
     })
     code === 200 && (
@@ -198,11 +198,11 @@ class MusicServices implements MusicInterface {
     )
   }
   @action queryLiked = async (): Promise<void> => {
-    const res = await get(`/api/likelist?&timestamp=${new Date().getTime()}`, {
+    const res = await get(`/musicapi/likelist?&timestamp=${new Date().getTime()}`, {
       uid: this.userInfo.userId
     })
     if (res.code === 200) {
-      const { songs, code } = await get('/api/song/detail', {
+      const { songs, code } = await get('/musicapi/song/detail', {
         ids: res.ids.join(',')
       })
       code === 200 && runInAction(() => {
@@ -226,7 +226,7 @@ class MusicServices implements MusicInterface {
     })
   }
   @action querySearch = async (): Promise<void> => {
-    const { code, result } = await get('/api/search', this.searchForm)
+    const { code, result } = await get('/musicapi/search', this.searchForm)
     code === 200 && runInAction(() => {
       this.searchArray = {
         data: result && result.songs.map((_item, _index) => {
@@ -244,7 +244,7 @@ class MusicServices implements MusicInterface {
     })
   }
   @action queryLyricById = async (id: string): Promise<void> => {
-    const lyric = await get('/api/lyric', {
+    const lyric = await get('/musicapi/lyric', {
       id
     })
     lyric.code === 200 && runInAction(() => {
@@ -253,7 +253,7 @@ class MusicServices implements MusicInterface {
     })
   }
   @action queryCommentById = async (id: string): Promise<void> => {
-    const { hotComments, comments, code, total } = await get('/api/comment/music', Object.assign({}, { id }, this.commentForm))
+    const { hotComments, comments, code, total } = await get('/musicapi/comment/music', Object.assign({}, { id }, this.commentForm))
     code === 200 && runInAction(() => {
       this.music.comment = hotComments || comments
       this.commentForm.count = total
@@ -268,7 +268,7 @@ class MusicServices implements MusicInterface {
       this.music.playing = true
       this.setLyricScrollTop(0)
       if (song.lyric === '') { //没有歌词需要查一下
-        const { code, lrc, tlyric } = await get('/api/lyric', {
+        const { code, lrc, tlyric } = await get('/musicapi/lyric', {
           id
         })
         song.lyric = lrc && lrc.lyric && lrc.lyric.replace(/↵/g, "").replace(/\n/g, "#*#")
@@ -279,17 +279,17 @@ class MusicServices implements MusicInterface {
       })
       // this.refreshMusicCache(id)
     } else {
-      const { data } = await get('/api/song/url', {
+      const { data } = await get('/musicapi/song/url', {
         id
       })
       if (data[0].url === null) {
         return false
       }
       // 不在缓存中就发请求
-      const detail = await get('/api/song/detail', {
+      const detail = await get('/musicapi/song/detail', {
         ids: id
       })
-      const lyric = await get('/api/lyric', {
+      const lyric = await get('/musicapi/lyric', {
         id
       })
       detail.code === 200 && lyric.code === 200 && runInAction(() => {
@@ -315,7 +315,7 @@ class MusicServices implements MusicInterface {
     return true
   }
   @action querySimiSong = async (id: string) => {
-    const { code, songs } = await get('/api/simi/song', {
+    const { code, songs } = await get('/musicapi/simi/song', {
       id
     })
     code === 200 && runInAction(() => {
@@ -325,11 +325,11 @@ class MusicServices implements MusicInterface {
     })
   }
   @action queryPlaylistSong = async (id: string) => {
-    const { code, privileges, playlist } = await get('/api/playlist/detail', {
+    const { code, privileges, playlist } = await get('/musicapi/playlist/detail', {
       id
     })
     if (code === 200) {
-      const res = await get('/api/song/detail', {
+      const res = await get('/musicapi/song/detail', {
         ids: privileges.map(_item => _item.id).join(',')
       })
       res.code === 200 && runInAction(() => {
@@ -353,7 +353,7 @@ class MusicServices implements MusicInterface {
     }
   }
   @action queryMusicMv = async (id: string) => {
-    const { code, data } = await get('/api/mv/url', {
+    const { code, data } = await get('/musicapi/mv/url', {
       id
     })
     code === 200 && runInAction(() => {
@@ -361,7 +361,7 @@ class MusicServices implements MusicInterface {
     })
   }
   @action queryUserPlayList = async () => {
-    const { code, playlist } = await get(`/api/user/playlist?&timestamp=${new Date().getTime()}`, {
+    const { code, playlist } = await get(`/musicapi/user/playlist?&timestamp=${new Date().getTime()}`, {
       uid: this.userInfo.userId
     })
     code === 200 && runInAction(() => {
@@ -373,7 +373,7 @@ class MusicServices implements MusicInterface {
     }
   }
   @action tracksPlayList = async (op: string, pid: string, tracks: string) => {
-    const res = await get(`/api/playlist/tracks`, {
+    const res = await get(`/musicapi/playlist/tracks`, {
       op,
       pid,
       tracks
@@ -381,7 +381,7 @@ class MusicServices implements MusicInterface {
     return res
   }
   @action setLike = async (id: string) => {
-    const res = await get(`/api/like`, {
+    const res = await get(`/musicapi/like`, {
       id
     })
     if (res.code === 200) {
