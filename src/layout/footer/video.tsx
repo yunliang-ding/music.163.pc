@@ -29,16 +29,16 @@ class Video extends React.Component<any, any> {
     this.setState({
       siderWidth: this.sliderNode.getBoundingClientRect().width
     })
-    window.parent.addEventListener('resize', () => {
-      this.sliderNode && this.setState({
-        siderWidth: this.sliderNode.getBoundingClientRect().width
-      })
-    })
-    window.parent.document.querySelector('iframe') && window.parent.document.querySelector('iframe').contentWindow.addEventListener('resize', () => {
-      this.sliderNode && this.setState({
-        siderWidth: this.sliderNode.getBoundingClientRect().width
-      })
-    })
+    // window.parent.addEventListener('resize', () => {
+    //   this.sliderNode && this.setState({
+    //     siderWidth: this.sliderNode.getBoundingClientRect().width
+    //   })
+    // })
+    // window.parent.document.querySelector('iframe') && window.parent.document.querySelector('iframe').contentWindow.addEventListener('resize', () => {
+    //   this.sliderNode && this.setState({
+    //     siderWidth: this.sliderNode.getBoundingClientRect().width
+    //   })
+    // })
   }
   render() {
     const {

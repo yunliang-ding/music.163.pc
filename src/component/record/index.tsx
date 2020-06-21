@@ -19,16 +19,16 @@ class RecordTable extends React.Component<any, any> {
     this.setState({
       tableHeight: this.tableNode.getBoundingClientRect().height
     })
-    window.parent.addEventListener('resize', (e) => {
-      this.tableNode && this.setState({
-        tableHeight: this.tableNode.getBoundingClientRect().height
-      })
-    })
-    window.parent.document.querySelector('iframe') && window.parent.document.querySelector('iframe').contentWindow.addEventListener('resize', (e) => {
-      this.tableNode && this.setState({
-        tableHeight: this.tableNode.getBoundingClientRect().height
-      })
-    })
+    // window.parent.addEventListener('resize', (e) => {
+    //   this.tableNode && this.setState({
+    //     tableHeight: this.tableNode.getBoundingClientRect().height
+    //   })
+    // })
+    // window.parent.document.querySelector('iframe') && window.parent.document.querySelector('iframe').contentWindow.addEventListener('resize', (e) => {
+    //   this.tableNode && this.setState({
+    //     tableHeight: this.tableNode.getBoundingClientRect().height
+    //   })
+    // })
   }
   render() {
     const {

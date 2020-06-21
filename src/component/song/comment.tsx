@@ -26,9 +26,6 @@ class MusicComment extends React.Component {
         count
       }
     } = this.props.Music
-    console.log( offset,
-        limit,
-        count)
     return <div className='app-song-comment'>
       <div className='app-song-comment-left'>
         <div className='app-song-comment-title'>

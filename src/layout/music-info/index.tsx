@@ -12,7 +12,6 @@ class MusicInfo extends React.Component<any, any> {
     super(props)
   }
   renderLyric = (lyricArray, progress) => {
-    console.log(lyricArray)
     return lyricArray.map((_item, _index, _arr) => {
       let currentTime = _item.substr(_item.indexOf('[') + 1, _item.indexOf('.') - 1).split(':') || [0,0]
       let second = (Number.parseInt(currentTime[0]) * 60 + Number.parseInt(currentTime[1])) * 1000
